@@ -6,33 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
 @Entity
 @Data
-// @EqualsAndHashCode(exclude = "author")
-public class Idea {
-    
+public class Todo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @JsonIgnore
+    @JsonIgnore
     private long id;
 
-    @Column(unique = false, nullable = false)
-    private String title;
-
-    @Column(unique = false, nullable = false)
-    private String context;
-
-    @Column(unique = false, nullable = false)
-    private String content;
-
-    @OneToOne
-    private Idea originalIdea;
-
     @ManyToOne
-    // @JsonIgnore
-    private Brain author;
+    private Idea idea;
+
+    @Column(unique = false, nullable = false)
+    private String username;
+    
+    @Column(unique = false, nullable = false)
+    private boolean markAsDone;
 }

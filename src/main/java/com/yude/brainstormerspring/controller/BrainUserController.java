@@ -6,12 +6,9 @@ import com.yude.brainstormerspring.model.Brain;
 import com.yude.brainstormerspring.model.form.BrainForm;
 import com.yude.brainstormerspring.repository.BrainUserRepository;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +22,6 @@ public class BrainUserController {
 
     @Autowired
     private BrainUserRepository brainUserRepository;
-    private static final Logger log = LoggerFactory.getLogger(BrainUserController.class);
 
     public BrainUserController(BrainUserRepository brainUserRepository) {
         this.brainUserRepository = brainUserRepository;
@@ -43,9 +39,6 @@ public class BrainUserController {
                     produces = MediaType.APPLICATION_JSON_VALUE, 
                     consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Brain createBrain(@RequestBody BrainForm brainForm) {
-        log.info("==========Get call by the app to create a new user==========");
-        log.info(brainForm.toString());
-
         Brain brain = new Brain();
         brain.setEmail(brainForm.getEmail());
         brain.setUsername(brainForm.getUsername());

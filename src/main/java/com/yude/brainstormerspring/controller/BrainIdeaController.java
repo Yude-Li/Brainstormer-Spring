@@ -2,7 +2,6 @@ package com.yude.brainstormerspring.controller;
 
 import com.yude.brainstormerspring.model.Brain;
 import com.yude.brainstormerspring.model.Idea;
-import com.yude.brainstormerspring.model.form.FollowForm;
 import com.yude.brainstormerspring.model.form.IdeaAuthForm;
 import com.yude.brainstormerspring.repository.BrainUserRepository;
 import com.yude.brainstormerspring.repository.IdeaRepository;
